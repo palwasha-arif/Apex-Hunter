@@ -1,10 +1,10 @@
 export default function CartCheckout() {
   return (
-    <div className="surface-card flex flex-wrap items-center justify-between gap-5 p-6 sm:p-7">
+    <div className="surface-card cart-card flex flex-wrap items-center justify-between gap-5 p-6 sm:p-8">
       <div>
         <p className="eyebrow">Your kit</p>
-        <h2 className="section-title">Cart & checkout</h2>
-        <p className="mt-2 text-sm text-slate-400">
+        <h2 className="section-title">Pack light. Go far.</h2>
+        <p className="mt-2 max-w-lg text-sm leading-6 text-stone-300">
           Shopping cart and payment processing are not connected in this starter build.
         </p>
       </div>

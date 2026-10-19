@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "dev": "node --watch server.js"
+    "dev": "node --watch server.js",
+    "db:shell": "mongosh \"mongodb+srv://apexhunter-db.wdzdyvx.mongodb.net/\" --apiVersion 1 --username palwashaarifkhan11_db_user"
   },
   "dependencies": {
     "cors": "^2.8.5",

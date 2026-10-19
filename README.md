@@ -1,8 +1,9 @@
 # Apex Hunter Platform
 
-A full-stack MERN e-commerce and AI field-guide platform for sportsmen, with a
-React and Tailwind client, an Express API, and MongoDB models. This repository
-currently contains a runnable starter dashboard and API health endpoint.
+A hunting-basics learning website for beginners, with a camouflage-inspired
+React and Tailwind client, outdoor photography, introductory safety and ethics
+lessons, and a trip-planning starter. The project also includes an Express API
+and MongoDB models.
 
 ## Requirements
 
@@ -22,17 +23,26 @@ npm install
 npm run dev
 ```
 
-If using MongoDB Atlas, replace `REPLACE_WITH_URL_ENCODED_ATLAS_PASSWORD` in
-`server/.env` with your database user's password. URL-encode special characters
-in the password before inserting it; do not share or commit the completed URI.
-Confirm your machine's IP is allowed in the Atlas Network Access settings.
+The example URI is prefilled with the Atlas host and username. It cannot connect
+until the password is set. Run the configuration helper below and enter the
+database user's password at its hidden prompt. Confirm your machine's IP is
+allowed in the Atlas Network Access settings.
 `JWT_SECRET` should be a long, random value; keep `.env` private.
-`GEMINI_API_KEY` is optional until the AI guide endpoint is implemented.
+Add a newly generated `GEMINI_API_KEY` in `server/.env` to enable AI field
+guides. Keep the key private; the browser calls your server, and the server
+calls Gemini with the key. The key pasted into a chat or terminal example
+should be revoked and replaced. To save a newly rotated key with a hidden
+prompt from the project root, run
+`powershell -ExecutionPolicy Bypass -File .\server\configure-gemini.ps1`.
 
 Alternatively, from the project root run
 `powershell -ExecutionPolicy Bypass -File .\server\configure-atlas.ps1`.
 Enter the Atlas database password at the hidden prompt; the script URL-encodes
 it and writes the connection URI to the ignored `server/.env` file.
+
+To open an interactive Atlas shell, install MongoDB Shell (`mongosh`) and run
+`cd server; npm run db:shell`. It prompts for the database user's password;
+never put the password directly in the command.
 
 The API health endpoint is available at <http://localhost:5000/api/health>.
 The server starts even if MongoDB is unavailable; it logs the database
@@ -51,13 +61,16 @@ npm run dev
 
 Open the local URL printed by Vite (usually <http://localhost:5173>).
 
-## Starter status
+## Current features
 
-- The dashboard and responsive navigation are implemented.
+- Introductory hunting lessons cover safety, local rules, field awareness, and
+  ethical practice. These do not replace certified training or local laws.
+- The responsive dashboard includes outdoor imagery and a beginner gear
+  overview.
 - The trip planner keeps a draft in the current browser session.
-- The gear catalog contains sample items, not live inventory.
-- Authentication, persistent trip storage, checkout, and AI guide generation
-  still need API implementation. The AI key alone does not enable generation.
+- The AI field guide posts to `/api/ai/guide` and calls Gemini from the server
+  using `GEMINI_API_KEY`.
+- Authentication and persistent trip storage still need API implementation.
 - MongoDB models are provided in `server/models`.
 
 ## Useful commands
