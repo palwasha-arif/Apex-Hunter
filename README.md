@@ -63,6 +63,19 @@ npm run dev
 
 Open the local URL printed by Vite (usually <http://localhost:5173>).
 
+### Deploy the client to Vercel
+
+Import this repository as a Vercel project with the repository root as the
+project root. The root `vercel.json` installs and builds the Vite client from
+`client` and publishes `client/dist`. Set the Vercel environment variable
+`VITE_API_URL` to the deployed API base URL, for example
+`https://apex-hunter-api.onrender.com/api`.
+
+Deploy the Express API separately on Render with `server` as its root
+directory, and set its `CLIENT_URL` environment variable to the deployed
+Vercel site origin so browser requests pass CORS. The API service must be
+available at the URL configured in `VITE_API_URL`.
+
 ## Current features
 
 - Introductory hunting lessons cover safety, local rules, field awareness, and
