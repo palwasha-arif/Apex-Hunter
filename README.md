@@ -44,7 +44,9 @@ To open an interactive Atlas shell, install MongoDB Shell (`mongosh`) and run
 `cd server; npm run db:shell`. It prompts for the database user's password;
 never put the password directly in the command.
 
-The API health endpoint is available at <http://localhost:5000/api/health>.
+The deployed API health endpoint is available at
+<https://apex-hunter-api.onrender.com/api/health>. To use a local API instead,
+set `VITE_API_URL=http://localhost:5000/api` in `client/.env`.
 The server starts even if MongoDB is unavailable; it logs the database
 connection error and reports the database state in the health response.
 
